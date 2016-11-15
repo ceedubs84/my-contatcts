@@ -1,6 +1,10 @@
 <h1>Contact List</h1>
-<%= @contacts.each do |contact| %>
-  <p>contact.first_name</p>
-  <p>contact.last_name</p>
-  <p>contact.phone_number</p>
+<% @contacts.each do |contact| %>
+  <h2><a href="/contacts/<%= contact.id %>">First Name: <%= contact.first_name %></a></h2>
+  <h2>Last Name: <%= contact.last_name %></h2>
+  <h3>Phone Number: <%= contact.phone_number %></h3>
 <% end %>
+
+<div>
+  <a href="/contacts/new">Create a New Contact</a>
+</div>
