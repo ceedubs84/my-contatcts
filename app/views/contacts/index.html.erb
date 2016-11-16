@@ -1,10 +1,12 @@
+
 <h1>Contact List</h1>
 <% @contacts.each do |contact| %>
-  <h2><a href="/contacts/<%= contact.id %>">First Name: <%= contact.first_name %></a></h2>
-  <h2>Last Name: <%= contact.last_name %></h2>
+  <h2><a href="/contacts/<%= contact.id %>"><%= contact.full_name %></a></h2>
+  <h3>First Name: <%= contact.first_name %></h3>
+  <h3>Last Name: <%= contact.last_name %></h3>
   <h3>Phone Number: <%= contact.phone_number %></h3>
 <% end %>
 
 <div>
-  <a href="/contacts/new">Create a New Contact</a>
+  <a class="btn btn-success" href="/contacts/new" role="button">Create New Contact</a>
 </div>
