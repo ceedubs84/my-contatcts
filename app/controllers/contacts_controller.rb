@@ -1,11 +1,11 @@
 class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
-    render 'index.html.erb'
+    render "index.html.erb"
   end
 
   def new
-    render 'new.html.erb'
+    render "new.html.erb"
   end
 
   def create
@@ -16,19 +16,19 @@ class ContactsController < ApplicationController
       )
     contact.save
     flash[:success] = "Contact Created Successfully!!"
-    redirect_to "/contacts"
+    redirect_to "/contacts/#{contact.id}"
   end
 
   def show
     contact_id = params[:id]
     @contact = Contact.find_by(id: contact_id)
-    render 'show.html.erb'
+    render "show.html.erb"
   end
 
   def edit
     contact_id = params[:id]
     @contact = Contact.find_by(id: contact_id)
-    render 'edit.html.erb'
+    render "edit.html.erb"
   end
 
   def update
@@ -38,14 +38,16 @@ class ContactsController < ApplicationController
     contact.last_name = params[:last_name]
     contact.phone_number = params[:phone_number]
     contact.save
-    redirect_to '/contacts/#{contact.id}'
+    flash[:success] = "Contact Edited Successfully!!"
+    redirect_to "/contacts/#{contact.id}"
   end
 
   def destroy
     contact_id = params[:id]
     contact = Contact.find_by(id: contact_id)
     contact.destroy
-    render 'destroy.html.erb'
+    flash[:success] = "Contact Destroyed Successfully!!"
+    redirect_to "/contacts"
   end
 
 
