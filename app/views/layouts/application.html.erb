@@ -25,7 +25,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="/contacts/new">Create New<span class="sr-only">(current)</span></a></li>
           <li><a href="#">Link</a></li>
         </ul>
         <form class="navbar-form navbar-left">
@@ -40,16 +40,16 @@
       </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-      <div class="col-md-4">
-        <div class="well">
-          <% flash.each do |name, message| %>
-            <div class="alert alert-warning alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <strong><%= message %></strong>
-            </div>
-          <% end %>  
-          <%= yield %>
-        </div>
+    <div class="col-md-4">
+      <div class="well">
+        <% flash.each do |name, message| %>
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong><%= message %></strong>
+          </div>
+        <% end %>  
+        <%= yield %>
       </div>
+    </div>
   </body>
 </html>
