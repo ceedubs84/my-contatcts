@@ -4,7 +4,14 @@
 <h3>Last Name: <%= @contact.last_name %></h3>
 <h3>Email: <%= @contact.email %></h3>
 <h3>Bio: <%= @contact.bio %></h3>
-<h4>Phone Number: <%= @contact.phone_number %></h4>
+<h3>Phone Number: <%= @contact.phone_number %></h3>
+<div>
+  <h4>Categories: 
+    <% @contact.groups.each do |group| %>
+      <a href="/contacts?group_name=<%= group.name %>"><%= group.name %></a>
+    <% end %>
+  </h4>
+</div>
 
 
 <div>
