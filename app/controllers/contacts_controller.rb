@@ -16,11 +16,12 @@ class ContactsController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       bio: params[:bio],
-      phone_number: params[:phone_number]
+      phone_number: params[:phone_number],
+      user_id: current_user.id
       )
     if @contact.save
       flash[:success] = "Contact Created Successfully!!"
-      redirect_to "/contacts/#{contact.id}"
+      redirect_to "/contacts/#{@contact.id}"
     else
       render 'new.html.erb'
     end
