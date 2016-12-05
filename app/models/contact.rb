@@ -1,6 +1,7 @@
 class Contact < ApplicationRecord
   belongs_to :user
-  
+  has_many :groups, through: :group_contacts
+
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :first_name, presence: true
