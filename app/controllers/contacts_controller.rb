@@ -69,8 +69,10 @@ class ContactsController < ApplicationController
     redirect_to "/contacts"
   end
 
-
-
-
-
+  def search
+    search_term = params[:search]
+    @contacts = Contact.where("name LIKE ?", '%' + search_term + '%')
+    render 'index.html.erb'
+  end
+  
 end

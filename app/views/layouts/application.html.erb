@@ -30,9 +30,12 @@
         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <%= form_tag "/search", method: :post do %>
+            <%= label_tag :search %>
+            <%= text_field_tag :search %>
+            <%= submit_tag "Search" %>
+          <% end %>
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
