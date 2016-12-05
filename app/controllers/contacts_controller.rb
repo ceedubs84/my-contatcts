@@ -74,5 +74,5 @@ class ContactsController < ApplicationController
     @contacts = Contact.where("name LIKE ?", '%' + search_term + '%')
     render 'index.html.erb'
   end
-  
+
 end
