@@ -1,4 +1,6 @@
 class Contact < ApplicationRecord
+  belongs_to :user
+  
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :first_name, presence: true
